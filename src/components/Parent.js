@@ -3,7 +3,7 @@ import axios from 'axios';
 import Card from './Card';
 import { StyledRoot, StyledContainer } from './ParentStyles';
 import { FaCommentAlt, FaThumbsUp, FaRegEye } from 'react-icons/fa';
-
+import { url } from './Helper';
 const Parent = () => {
   const date = new Date().toLocaleString();
 
@@ -50,11 +50,7 @@ const Parent = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        'https://api.unsplash.com/photos/?client_id=4ec682deb43de5995c7abca19b794b5630b901863d2b7ebd30cc57b3608f8fa5'
-      )
-      .then(data => setState(data));
+    axios.get(url).then(data => setState(data));
   }, []);
   console.log(state.data);
   return (
